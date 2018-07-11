@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>	
+<head>
+	<title>Rock Paper Scissor</title>
+</head>
+<body>
+	<script>
+	        const playerSelection = prompt("Choose your weapon wisely", '');
+		
+		const computerSelection = computerPlay();
+	     
+                function computerPlay() {
+			let computerOptions = ["rock", "paper", "scissors"];
+			let computerChoice = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+			return computerSelection;
+                }
+		
+                function playRound(playerSelection, computerSelection) {
+			if (playerSelection.toLowerCase() === "rock" && computerSelection === "rock") {
+				return("It's a tie!");
+			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
+				return("You lose! Paper devours rock.");
+			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
+				return("You win! Rock smashes scissors.");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
+				return("You win! Paper devours rock.");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "paper") {
+				return("It's a tie!");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
+				return("You lose! Scissors cut through paper like butter.");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
+				return("You lose! Rock smashes scissors.");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
+				return("You win! Scissors cut through paper like butter.");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "scissors") {
+				return("It's a tie!");
+			} else {
+				return("Did you choose a weapon? Your choices are rock, paper, or scissors.")
+			}
+                 }
+                 
+
+		function game();
+
+	</script>
+</body>
+</html>
