@@ -1,46 +1,84 @@
 <!DOCTYPE html>
 <html>	
 <head>
-	<title>Rock Paper Scissor</title>
+	<title>Rock Paper Scissors</title>
 </head>
 <body>
 	<script>
-	        const playerSelection = prompt("Choose your weapon wisely", '');
+
 		
-		const computerSelection = computerPlay();
-	     
-                function computerPlay() {
+	        function computerPlay() {
 			let computerOptions = ["rock", "paper", "scissors"];
-			let computerChoice = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-			return computerSelection;
+			let computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+			return computerChoice;
                 }
 		
-                function playRound(playerSelection, computerSelection) {
-			if (playerSelection.toLowerCase() === "rock" && computerSelection === "rock") {
-				return("It's a tie!");
-			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
-				return("You lose! Paper devours rock.");
-			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-				return("You win! Rock smashes scissors.");
-			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
-				return("You win! Paper devours rock.");
-			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "paper") {
-				return("It's a tie!");
-			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
-				return("You lose! Scissors cut through paper like butter.");
-			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
-				return("You lose! Rock smashes scissors.");
-			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
-				return("You win! Scissors cut through paper like butter.");
-			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "scissors") {
-				return("It's a tie!");
-			} else {
-				return("Did you choose a weapon? Your choices are rock, paper, or scissors.")
-			}
-                 }
-                 
 
-		function game();
+		function playRound() {
+				
+			var playerSelection = prompt("Choose your weapon wisely. First to 3 wins.", 'rock, paper, or scissors?');
+			var computerSelection = computerPlay();
+	
+
+			if (playerSelection.toLowerCase() === "rock" && computerSelection === "rock") {
+				return("tie");
+			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
+				return("lose");
+			} else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
+				return("win");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
+				return("win");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "paper") {
+				return("tie");
+			} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
+				return("lose");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
+				return("lose");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
+				return("win");
+			} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "scissors") {
+				return("tie");
+			} 
+		}
+
+
+		function game() {
+	
+		var playerScore = 0;
+		var compScore = 0;
+
+			do {
+				switch (playRound()) {  
+                        		case "tie":
+                                  		console.log(`Your score: ${playerScore} 
+                                        	Computer score: ${compScore} 
+                                        	Tie game!`);
+                                	break;
+                                	case "win":
+                                		playerScore++;
+                                        	console.log(`Your score: ${playerScore} 
+                                       		Computer score: ${compScore} 
+                                        	You win!`);
+                                	break;
+                              		case "lose":
+                                		compScore++;
+                                        	console.log(`Your score: ${playerScore} 
+                                        	Computer score: ${compScore} 
+                                        	You lose!`);
+                                	break;
+                                        default:
+                                        	console.log("Did you choose a weapon? Your choices are rock, paper, or scissors.");
+                   		} 
+            		} while (!(playerScore === 3 || compScore === 3));
+		
+			if (playerScore > compScore) {
+				console.log("You are the champion, my friend. You kept on fighting till the end.");
+			} else if (playerScore < compScore) {
+				console.log("Ding! Ding! We have a winner! And it's not you.");
+			}		
+ 		}
+
+		game();
 
 	</script>
 </body>
